@@ -1,4 +1,3 @@
-version: '3.7'
 
 services:
   postgres:
@@ -27,4 +26,4 @@ services:
       - 1025:1025
 networks:
   default:
-    name: example-chat-network
+    name: example-network

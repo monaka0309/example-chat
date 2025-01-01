@@ -202,13 +202,13 @@
         </component>
 
         <!-- ヘルスチェックエンドポイントハンドラ -->
-        <component class="nablarch.fw.RequestHandlerEntry">
+        <!-- <component class="nablarch.fw.RequestHandlerEntry">
           <property name="requestPattern" value="/api/health" />
           <property name="handler" ref="healthCheck" />
-        </component>
+        </component> -->
 
         <!-- CSRFトークンの発行や検証を行うために追加 -->
-        <component-ref name="csrfTokenVerificationHandler"/>
+        <!-- <component-ref name="csrfTokenVerificationHandler"/> -->
 
         <!-- ファイルアップロード用に追加 -->
         <component class="com.example.system.nablarch.handler.MultipartErrorHandler">
@@ -231,7 +231,7 @@
     <property name="initializeList">
       <list>
         <component-ref name="packageMapping" />
-        <component-ref name="dbMigration" />
+        <!-- <component-ref name="dbMigration" /> -->
         <component-ref name="lettuceRedisClientProvider"/>
       </list>
     </property>

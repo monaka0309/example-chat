@@ -20,9 +20,6 @@
   <listener>
     <listener-class>nablarch.fw.web.servlet.NablarchServletContextListener</listener-class>
   </listener>
-  <listener>
-    <listener-class>com.example.system.nablarch.di.EventListenerRegister</listener-class>
-  </listener>
 
   <display-name>RESTful Web Services Example</display-name>
   <description>RESTful Web Services Example</description>
