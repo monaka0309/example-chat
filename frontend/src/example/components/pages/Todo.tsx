@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { useInput } from "framework";
 import './Todo.css';
 
 const Todo: React.FC = () => {
     const [todos, setTodos] = useState<String[]>([]);
+    const [text, textAttributes] = useInput('');
 
     useEffect(() => {
         setTodos([ '洗濯物を干す', '部屋を掃除する' ]);
     }, []);
 
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setTodos([...todos, text]);
+    };
+
 
     return (
         <div className="content">
             <div className="form_field">
-                <form className="form">
+                <form className="form" onSubmit={handleSubmit}>
                     <div className="input_field">
-                        <input type="text" placeholder="やることを入力してください"></input>
+                        <input type="text" {...textAttributes} placeholder="やることを入力してください"></input>
                     </div>
                     <div className="button_field">
                         <button type="button">追加</button>

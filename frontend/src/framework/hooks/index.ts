@@ -4,9 +4,15 @@ import {Logger} from 'framework/logging';
 
 /**
  * フォームについては、Reactの制御されたコンポーネント(https://ja.reactjs.org/docs/forms.html#controlled-components)となるように実装する。
- * コンポーネントは関数コンポーネントとして実装する方針であるため、ステートフックであるuseState（https://ja.reactjs.org/docs/hooks-state.html）を使用して、入力値を保持する。
- * 入力コンポーネントの実装では、input要素に渡す属性や関数等、同様の実装をすることが多くなる。
- * そのため、ステートフックとステート更新をラッピングした独自フックとしてuseInput（その他、select要素に対応したuseSelect等）を作成し、各入力コンポーネントの実装コストを下げる。
+ * 
+ * コンポーネントは関数コンポーネントとして実装する方針であるため、ステートフックであるuseState（https://ja.reactjs.org/docs/hooks-state.html）を使用して、
+ * 入力値を保持する。
+ * 
+ * 入力コンポーネントの実装では、
+ * input要素に渡す属性や関数等、同様の実装をすることが多くなる。
+ * 
+ * そのため、ステートフックとステート更新をラッピングした独自フックとしてuseInput（その他、select要素に対応したuseSelect等）を作成し、
+ * 各入力コンポーネントの実装コストを下げる。
  */
 
 /**
