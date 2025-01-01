@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './Todo.css';
 
 const Todo: React.FC = () => {
+    const [todos, setTodos] = useState<String[]>([]);
+
+    useEffect(() => {
+        setTodos([ '洗濯物を干す', '部屋を掃除する' ]);
+    }, []);
+
+
     return (
         <div className="content">
             <div className="form_field">
@@ -15,16 +22,13 @@ const Todo: React.FC = () => {
                 </form>
             </div>
             <ul className="list">
-                <li className="item">
+                {todos.map((todo, index) =>
+                <li className="item" key={index}>
                     <div className="todo">
-                        <span>洗濯物を干す</span>
+                        <span>{todo}</span>
                     </div>
                 </li>
-                <li className="item">
-                    <div className="todo">
-                        <span>部屋を掃除する</span>
-                    </div>
-                </li>
+            )}
             </ul>
         </div>
     );
