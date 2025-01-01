@@ -1,1 +1,0 @@
-NEXT_CHANNEL_ID = select nextval('channel_id') AS channel_id;

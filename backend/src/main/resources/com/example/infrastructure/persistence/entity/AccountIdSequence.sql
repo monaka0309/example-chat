@@ -1,1 +1,0 @@
-NEXT_ACCOUNT_ID = select nextval('account_id') AS account_id;

@@ -1,1 +1,0 @@
-NEXT_MESSAGE_ID = select nextval('message_Id') AS message_id;
