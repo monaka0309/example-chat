@@ -16,7 +16,6 @@
     <property name="processors">
       <list>
         <component class="nablarch.test.core.http.NablarchSIDManager" />
-        <component class="com.example.presentation.restapi.CsrfTokenManager" />
       </list>
     </property>
   </component>

@@ -49,19 +49,7 @@
         <property name="basePackage" value="${nablarch.commonProperty.basePackage}" />
       </component>
     </property>
-    <property name="methodBinderFactory">
-      <component class="nablarch.fw.jaxrs.JaxRsMethodBinderFactory">
-        <property name="handlerList">
-          <component class="com.example.system.nablarch.jaxrs.BodyConvertHandlerListFactory">
-            <property name="preHandlers">
-              <list>
-                <component class="com.example.system.nablarch.handler.LoginCheckHandler"/>
-              </list>
-            </property>
-          </component>
-        </property>
-      </component>
-    </property>
+
     <property name="delegateFactory">
       <component class="nablarch.fw.handler.SystemRepositoryDelegateFactory"/>
     </property>
@@ -231,7 +219,7 @@
     <property name="initializeList">
       <list>
         <component-ref name="packageMapping" />
-        <!-- <component-ref name="dbMigration" /> -->
+        <component-ref name="dbMigration" />
         <component-ref name="lettuceRedisClientProvider"/>
       </list>
     </property>
