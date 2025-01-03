@@ -60,3 +60,21 @@
     text-align: left;
   }
   
+  .download_button_field {
+    text-align: left;
+    width: 30%;
+    margin-bottom: 20px;
+  }
+  .download_button_field button {
+    height: 35px;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 0 15px;
+    border: none;
+    vertical-align: middle;
+  }
+  
