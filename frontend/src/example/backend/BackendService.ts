@@ -18,8 +18,22 @@ const getTodos = async () => {
   return response.json();
 };
 
+const postTodo = async (text: string) => {
+  Logger.debug('call service of postTodo');
+
+  const response = await restClient.post('/api/todos', {text});
+  Logger.debug(response);
+  if(response.ok){
+    return;
+  }
+  throw new Error('Web API call failed. [ status code: ${response.status} ]');
+};
+
 const BackendService = {
   getHelloWorld,
   getTodos,
+  postTodo,
 };
+
+
 export default BackendService;
