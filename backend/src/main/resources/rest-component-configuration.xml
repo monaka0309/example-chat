@@ -196,7 +196,7 @@
         </component> -->
 
         <!-- CSRFトークンの発行や検証を行うために追加 -->
-        <!-- <component-ref name="csrfTokenVerificationHandler"/> -->
+        <component-ref name="csrfTokenVerificationHandler"/>
 
         <!-- ファイルアップロード用に追加 -->
         <component class="com.example.system.nablarch.handler.MultipartErrorHandler">

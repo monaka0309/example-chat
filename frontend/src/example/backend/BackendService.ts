@@ -50,6 +50,27 @@ const downloadFile = async (fileKey: string) => {
     return response.blob();
   }
   throw new Error('Web API call failed. [ status code: ${response.status} ]');
+};
+
+const getCsrfToken = async () => {
+  Logger.debug('call service of getCsrfToken');
+
+  const response = await restClient.get('/api/csrf_token');
+  Logger.debug(response);
+  if(response.ok){
+    return await response.json();
+  }
+  throw new Error('Web API call failed. [ status code: ${response.status}]');
+};
+
+function refreshCsrfToken(): Promise<void> {
+  Logger.debug('call service of refreshCsrfToken');
+
+  return getCsrfToken().then(({ csrfTokenHeaderName, csrfTokenValue }) => {
+    Logger.debug('csrfTokenHeaderName:', csrfTokenHeaderName, 'csrfTokenValue:', csrfTokenValue);
+    restClient.csrfTokenHeaderName = csrfTokenHeaderName;
+    restClient.csrfTokenValue = csrfTokenValue;
+  });
 }
 
 const BackendService = {
@@ -58,6 +79,8 @@ const BackendService = {
   postTodo,
   createFile,
   downloadFile,
+  getCsrfToken,
+  refreshCsrfToken,
 };
 
 
