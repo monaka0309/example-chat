@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { useInput } from "framework";
+import React, { useEffect, useState } from 'react';
+import { Logger, useInput } from 'framework';
 import './Todo.css';
+import { BackendService } from 'example/backend';
+
+type Todo = {
+    id: number
+    text: string
+}
 
 const Todo: React.FC = () => {
     const [todos, setTodos] = useState<String[]>([]);
     const [text, textAttributes] = useInput('');
 
     useEffect(() => {
-        setTodos([ '洗濯物を干す', '部屋を掃除する' ]);
+        BackendService.getTodos()
+            .then(response => {
+                Logger.debug(response);
+                setTodos(response.map((todo: Todo) => todo.text));
+            });
     }, []);
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -24,10 +34,11 @@ const Todo: React.FC = () => {
                         <input type="text" {...textAttributes} placeholder="やることを入力してください"></input>
                     </div>
                     <div className="button_field">
-                        <button type="button">追加</button>
+                        <button type="submit">追加</button>
                     </div>
                 </form>
             </div>
+            <h1>hello</h1>
             <ul className="list">
                 {todos.map((todo, index) =>
                 <li className="item" key={index}>
