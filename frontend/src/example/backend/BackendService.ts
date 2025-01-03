@@ -66,10 +66,10 @@ const getCsrfToken = async () => {
 function refreshCsrfToken(): Promise<void> {
   Logger.debug('call service of refreshCsrfToken');
 
-  return getCsrfToken().then(({ csrfTokenHeaderName, csrfTokenValue }) => {
-    Logger.debug('csrfTokenHeaderName:', csrfTokenHeaderName, 'csrfTokenValue:', csrfTokenValue);
-    restClient.csrfTokenHeaderName = csrfTokenHeaderName;
-    restClient.csrfTokenValue = csrfTokenValue;
+  return getCsrfToken().then(({ headerName, token }) => {
+    Logger.debug('csrfTokenHeaderName:', headerName, 'token:', token);
+    restClient.csrfTokenHeaderName = headerName;
+    restClient.csrfTokenValue = token;
   });
 }
 
